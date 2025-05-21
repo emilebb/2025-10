@@ -1,12 +1,5 @@
-img.recipe-img {
-  max-width: 250px;
-}
 
-tr:hover {
-  background-color: pink;
-  cursor: pointer;
-}
 
-thead {
-  background-color: palevioletred;
+h2{
+  color: oldlace;
 }

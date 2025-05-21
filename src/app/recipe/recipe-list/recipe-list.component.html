@@ -1,26 +1,23 @@
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Receta</th>
-        <th>Imagen</th>
-        <th>Porciones</th>
-        <th>Tiempo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let recipe of recipes" (click)="onSelect(recipe)">
-        <td>{{ recipe.nombre }}</td>
-        <td>
-          <img
-            class="recipe-img"
-            [src]="recipe.imagen"
-            alt="{{ recipe.imagen }}"
-          />
-        </td>
-        <td>{{ recipe.porciones }}</td>
-        <td>{{ recipe.tiempo_minutos }} min</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container-fluid py-3" style="background:rgb(14, 14, 14); min-height:100vh;">
+  <h2 class="text-center mb-4">Recetas uniandes</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-3 mb-4" *ngFor="let recipe of recipes">
+      <div class="card h-100 shadow-sm" style="cursor:pointer;">
+        <img [src]="recipe.imagen" class="card-img-top" [alt]="recipe.nombre" style="height:180px;object-fit:cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ recipe.nombre }}</h5>
+          <ul class="mb-2">
+            <li *ngFor="let tag of recipe.etiquetas">{{ tag }}</li>
+          </ul>
+          <div class="mb-1">
+            <strong>Porciones:</strong> {{ recipe.porciones }}
+          </div>
+          <div class="mb-3">
+            <strong># Ingredientes:</strong> {{ recipe.ingredientes.length }}
+          </div>
+          <button class="btn btn-sm btn-primary w-100" (click)="onSelect(recipe)">Ver la receta</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
